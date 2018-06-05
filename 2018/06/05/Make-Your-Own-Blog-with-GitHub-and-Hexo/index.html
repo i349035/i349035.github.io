@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Requirements Node.js Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make Your Own Blog with GitHub and Hexo">
+<meta property="og:url" content="https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Requirements Node.js Git">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/1528092767182.png">
+<meta property="og:updated_time" content="2018-06-05T06:42:01.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Make Your Own Blog with GitHub and Hexo">
+<meta name="twitter:description" content="Requirements Node.js Git">
+<meta name="twitter:image" content="https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/1528092767182.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/"/>
+
+
+
+
+
+  <title>Make Your Own Blog with GitHub and Hexo | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rhea Du">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Make Your Own Blog with GitHub and Hexo</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T14:27:36+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><ul>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<a id="more"></a>
+<h1 id="Why-GitHub-Pages"><a href="#Why-GitHub-Pages" class="headerlink" title="Why GitHub Pages?"></a>Why GitHub Pages?</h1><p>Free and Easy.</p>
+<h2 id="Create-a-repository"><a href="#Create-a-repository" class="headerlink" title="Create a repository"></a>Create a repository</h2><p>Head over to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> and <a href="https://github.com/new" target="_blank" rel="noopener">create a new repository</a> named <strong><em>username</em>.github.io</strong>, where <em>username</em> is your username or organization name on GitHub.</p>
+<img src="/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/1528092767182.png">
+<p>More detailed information can be found in official website: <a href="https://pages.github.com" target="_blank" rel="noopener">https://pages.github.com</a></p>
+<h1 id="Choose-a-Framework"><a href="#Choose-a-Framework" class="headerlink" title="Choose a Framework"></a>Choose a Framework</h1><p>There are two popular blog frameworks: <a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll</a> and <a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>. Both of them are pretty, simple and <em>Markdown</em> support(Markdown is a lightweight and simple markup language, if you are not familiar with it, you can catch it from this <a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Guide</a>). Here I take <strong>Hexo</strong> as an example.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init MyBlog</span><br><span class="line"><span class="built_in">cd</span> MyBlog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Once initialized, you can find the folder tree.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>You can configure most settings here.</p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>Application data.</p>
+<h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>You can create your own template here for creating a new post(article).</p>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>This is where you put your site’s content, Hexo ignores files or folders whose name are prefixed with <code>_</code> - except <code>_posts</code> folder. </p>
+<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p>Theme folder.</p>
+<h2 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h2><h3 id="Create-new-post"><a href="#Create-new-post" class="headerlink" title="Create new post"></a>Create new post</h3><p>Create a new post or a new page:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] "My Post"&lt;your title&gt;</span><br></pre></td></tr></table></figure>
+<p><code>post</code> is the default <code>layout</code>, you can create your own in <code>scaffolds</code> folder. You can edit your article in <code>\MyBlog\source\_posts\My-Post.md</code>. </p>
+<h3 id="Categories-amp-Tags"><a href="#Categories-amp-Tags" class="headerlink" title="Categories &amp; Tags"></a>Categories &amp; Tags</h3><p>In your <code>post.md</code>, you can edit categories &amp; tags.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Sports</span><br><span class="line">- Baseball</span><br><span class="line">tags:</span><br><span class="line">- Injury</span><br><span class="line">- Fight</span><br><span class="line">- Shocking</span><br></pre></td></tr></table></figure>
+<h3 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h3><p>More information can be found in official website: <a href="https://hexo.io/docs/tag-plugins.html" target="_blank" rel="noopener">https://hexo.io/docs/tag-plugins.html</a></p>
+<p>Here is only one tip: Use  <code>&lt;!-- more --&gt;</code> to break the passage, the rest content can only be read by clicking “read more”.</p>
+<h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>If you want to use the local images, follow steps:</p>
+<p>Create post asset folder. You can create on your own or set it be auto.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># auto</span></span><br><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>Once you <code>hexo new &quot;Post&quot;</code>, there is a folder created automatically called “Post”, you can just put images. (Of course, you can create the folder on your own.) Then insert image by this way in your <code>post.md</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg example image %&#125;</span><br><span class="line">&#123;% asset_img <span class="string">"spaced asset.jpg"</span> <span class="string">"spaced title"</span> %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line"><span class="comment"># if it is not successful, install server "npm install hexo-server --save" then try again</span></span><br></pre></td></tr></table></figure>
+<p>Your website will run at <code>http://localhost:4000</code> by default, it updates automatically, you can review your article in local.</p>
+<h2 id="Generating"><a href="#Generating" class="headerlink" title="Generating"></a>Generating</h2><p>Generating static files with Hexo. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line"><span class="comment"># simplify: hexo g</span></span><br></pre></td></tr></table></figure>
+<p>After generating, you can find <code>public</code> folder created, all static files in this folder, you can copy to other place. </p>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p>If it is your first deployment, you need to modify some settings in <code>_config.yml</code>.  I deploy my website in my GitHub Pages Blog.</p>
+<p>Install plugin:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>in <code>_config.yml</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br></pre></td></tr></table></figure>
+<p>If there is permission denied, please check your ssh-key has been added.</p>
+<p>Just deploy it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"><span class="comment"># simplify: hexo d</span></span><br></pre></td></tr></table></figure>
+<p>Then just check the URL: <code>https://username.github.io/</code></p>
+<p>After the first deployment, you can just use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>More detailed information about Hexo can be found in official docs: <a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
+</blockquote>
+<h1 id="Make-your-Blog-Beautiful-and-Powerful"><a href="#Make-your-Blog-Beautiful-and-Powerful" class="headerlink" title="Make your Blog Beautiful and Powerful"></a>Make your Blog Beautiful and Powerful</h1><h2 id="Choose-a-Theme"><a href="#Choose-a-Theme" class="headerlink" title="Choose a Theme"></a>Choose a Theme</h2><p>There are so many beautiful themes in hexo: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p>Just choose whichever you like, then modify some settings. I recommend <a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>, because it has complete docs and pretty.</p>
+<h2 id="Powerful-Plugins"><a href="#Powerful-Plugins" class="headerlink" title="Powerful Plugins"></a>Powerful Plugins</h2><p>Have fun by these plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></p>
+<h2 id="Comments-System"><a href="#Comments-System" class="headerlink" title="Comments System"></a>Comments System</h2><p>Follow NexT docs: <a href="http://theme-next.iissnan.com/third-party-services.html#comment-system" target="_blank" rel="noopener">Comments System</a></p>
+<p>Recommend <a href="https://disqus.com/" target="_blank" rel="noopener">DISQUS</a></p>
+<h2 id="Analytics-System"><a href="#Analytics-System" class="headerlink" title="Analytics System"></a>Analytics System</h2><p>Follow NexT docs: <a href="http://theme-next.iissnan.com/third-party-services.html#analytics-system" target="_blank" rel="noopener">Analytics System</a></p>
+<h2 id="Share-System"><a href="#Share-System" class="headerlink" title="Share System"></a>Share System</h2><p>Follow NexT docs: <a href="http://theme-next.iissnan.com/third-party-services.html#share-system" target="_blank" rel="noopener">Share System</a></p>
+<p>Recommend <a href="https://github.com/revir/need-more-share2" target="_blank" rel="noopener">NeedMoreShare2</a></p>
+<h2 id="Search-System"><a href="#Search-System" class="headerlink" title="Search System"></a>Search System</h2><p>Follow NexT docs: <a href="http://theme-next.iissnan.com/third-party-services.html#search-system" target="_blank" rel="noopener">Search System</a></p>
+<p>Recommend <a href="https://github.com/iissnan/hexo-theme-next/pull/84" target="_blank" rel="noopener">Swiftype</a></p>
+<h2 id="Let-Blog-Be-Searched-in-Google"><a href="#Let-Blog-Be-Searched-in-Google" class="headerlink" title="Let Blog Be Searched in Google"></a>Let Blog Be Searched in Google</h2><p><a href="https://www.google.com/webmasters/tools/submit-url" target="_blank" rel="noopener">Add Content to Google</a></p>
+<h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2><p>Many plugins can be used in this blog, just have fun~</p>
+<p>Here is a blog may help you: <a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html" target="_blank" rel="noopener">Moorez</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Rhea Du</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Requirements"><span class="nav-number">1.</span> <span class="nav-text">Requirements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-GitHub-Pages"><span class="nav-number">2.</span> <span class="nav-text">Why GitHub Pages?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-repository"><span class="nav-number">2.1.</span> <span class="nav-text">Create a repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Choose-a-Framework"><span class="nav-number">3.</span> <span class="nav-text">Choose a Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">3.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">3.2.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml"><span class="nav-number">3.2.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-number">3.2.2.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scaffolds"><span class="nav-number">3.2.3.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#source"><span class="nav-number">3.2.4.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#themes"><span class="nav-number">3.2.5.</span> <span class="nav-text">themes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Writing"><span class="nav-number">3.3.</span> <span class="nav-text">Writing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-new-post"><span class="nav-number">3.3.1.</span> <span class="nav-text">Create new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Categories-amp-Tags"><span class="nav-number">3.3.2.</span> <span class="nav-text">Categories &amp; Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Format"><span class="nav-number">3.3.3.</span> <span class="nav-text">Format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Images"><span class="nav-number">3.3.4.</span> <span class="nav-text">Images</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Server"><span class="nav-number">3.4.</span> <span class="nav-text">Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generating"><span class="nav-number">3.5.</span> <span class="nav-text">Generating</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number">3.6.</span> <span class="nav-text">Deployment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Make-your-Blog-Beautiful-and-Powerful"><span class="nav-number">4.</span> <span class="nav-text">Make your Blog Beautiful and Powerful</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Choose-a-Theme"><span class="nav-number">4.1.</span> <span class="nav-text">Choose a Theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Powerful-Plugins"><span class="nav-number">4.2.</span> <span class="nav-text">Powerful Plugins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-System"><span class="nav-number">4.3.</span> <span class="nav-text">Comments System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analytics-System"><span class="nav-number">4.4.</span> <span class="nav-text">Analytics System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share-System"><span class="nav-number">4.5.</span> <span class="nav-text">Share System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-System"><span class="nav-number">4.6.</span> <span class="nav-text">Search System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let-Blog-Be-Searched-in-Google"><span class="nav-number">4.7.</span> <span class="nav-text">Let Blog Be Searched in Google</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced"><span class="nav-number">4.8.</span> <span class="nav-text">Advanced</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rhea Du</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://i349035.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://i349035.github.io/2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/';
+          this.page.identifier = '2018/06/05/Make-Your-Own-Blog-with-GitHub-and-Hexo/';
+          this.page.title = 'Make Your Own Blog with GitHub and Hexo';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://i349035.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
